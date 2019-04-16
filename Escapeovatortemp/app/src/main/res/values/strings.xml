@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="app_name">Escapeovator</string>
+
+    <string name="floor_label">Floor:</string>
+
+    <string name="note_label">Note: </string>
+
+    <string name="note_hint">Type the note here</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="floor_1">1</string>
+
+    <string name="floor_2">2</string>
+
+    <string name="floor_3">3</string>
+
+    <string name="floor_4">4</string>
+
+    <string name="floor_5">5</string>
+
+    <string name="lobby_elevator">_</string>
+
+    <string name="ballroom">Ballroom</string>
+
+    <string name="maintenance">Maintenance</string>
+
+    <string name="kitchen">Kitchen</string>
+
+    <string name="managers_office">Manager\'s Office</string>
+
+    <string name="dark_hallway">Dark Hallway</string>
+
+</resources>

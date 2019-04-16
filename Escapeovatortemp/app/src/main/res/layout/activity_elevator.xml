@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/elevator_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:id="@+id/elevator_floor_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/floor_1" />
+
+        <RadioButton
+            android:id="@+id/elevator_floor_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/floor_2" />
+
+        <RadioButton
+            android:id="@+id/elevator_floor_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/floor_3" />
+
+        <RadioButton
+            android:id="@+id/elevator_floor_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/floor_4" />
+
+        <RadioButton
+            android:id="@+id/elevator_floor_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/floor_5" />
+
+        <RadioButton
+            android:id="@+id/elevator_floor_lobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lobby_elevator"
+            android:enabled="false"/>
+    </RadioGroup>
+</FrameLayout>
