@@ -2,9 +2,12 @@ package com.bignerdranch.android.escapeovatortemp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.bignerdranch.android.escapeovatortemp.R;
 
@@ -20,6 +23,14 @@ public class Floor1Activity extends ParentFloorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor1);
+
+        Button elevatorButton = new Button(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getFragmentManager();
+                ElevatorFragment.instantiate(); //I'm fixing this :c
+            }
+        });
     }
 
     @Override
@@ -44,7 +55,7 @@ public class Floor1Activity extends ParentFloorActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
-        //Intent intent = new Intent(Floor1Activity.this, ElevatorActivity.class);
+        //Intent intent = new Intent(Floor1Activity.this, ElevatorFragment.class);
         //startActivity(intent);
     }
 

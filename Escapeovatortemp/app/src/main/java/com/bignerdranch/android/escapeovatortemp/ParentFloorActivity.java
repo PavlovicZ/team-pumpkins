@@ -42,7 +42,7 @@ public abstract class ParentFloorActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
-        //Intent intent = new Intent(Floor1Activity.this, ElevatorActivity.class);
+        //Intent intent = new Intent(Floor1Activity.this, ElevatorFragment.class);
         //startActivity(intent);
     }
 

@@ -1,19 +1,18 @@
 package com.bignerdranch.android.escapeovatortemp;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioGroup;
 
-import com.bignerdranch.android.escapeovatortemp.R;
-
-public class ElevatorActivity extends AppCompatActivity {
-    private static final String TAG = "ElevatorActivity";
+public class ElevatorFragment extends DialogFragment {
+    private static final String TAG = "ElevatorFragment";
     private static final String KEY_INDEX = "index";
 
     private RadioGroup mElevatorButtons;
@@ -25,17 +24,17 @@ public class ElevatorActivity extends AppCompatActivity {
     private int mFloor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_elevator);
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.activity_elevator, null);
 
-        mElevatorButtons = (RadioGroup) findViewById(R.id.elevator_buttons);
+        mElevatorButtons = (RadioGroup) view.findViewById(R.id.elevator_buttons);
 
-        mFloorButton1 = (RadioButton) findViewById(R.id.elevator_floor_1);
-        mFloorButton2 = (RadioButton) findViewById(R.id.elevator_floor_2);
-        mFloorButton3 = (RadioButton) findViewById(R.id.elevator_floor_3);
-        mFloorButton4 = (RadioButton) findViewById(R.id.elevator_floor_4);
-        mFloorButton5 = (RadioButton) findViewById(R.id.elevator_floor_5);
+        mFloorButton1 = (RadioButton) view.findViewById(R.id.elevator_floor_1);
+        mFloorButton2 = (RadioButton) view.findViewById(R.id.elevator_floor_2);
+        mFloorButton3 = (RadioButton) view.findViewById(R.id.elevator_floor_3);
+        mFloorButton4 = (RadioButton) view.findViewById(R.id.elevator_floor_4);
+        mFloorButton5 = (RadioButton) view.findViewById(R.id.elevator_floor_5);
         mElevatorButtons.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(RadioGroup mElevatorButtons, int checkedId){
@@ -56,43 +55,36 @@ public class ElevatorActivity extends AppCompatActivity {
                 }
             }
         });
+        return null;
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         Log.d(TAG, "onStart() called");
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume() called");
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         Log.d(TAG, "onPause() called");
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        Log.i(TAG, "onSaveInstanceState");
-        savedInstanceState.putInt(KEY_INDEX, mFloor);
-        Intent intent = new Intent(ElevatorActivity.this, ParentFloorActivity.class);
-        startActivity(intent);
-    }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
     }

@@ -2,11 +2,8 @@ package com.bignerdranch.android.escapeovatortemp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-
-import com.bignerdranch.android.escapeovatortemp.R;
 
 public class Floor4Activity extends ParentFloorActivity {
     private static final String TAG = "Floor4Activity";
@@ -44,7 +41,7 @@ public class Floor4Activity extends ParentFloorActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
-        Intent intent = new Intent(Floor4Activity.this, ElevatorActivity.class);
+        Intent intent = new Intent(Floor4Activity.this, ElevatorFragment.class);
         startActivity(intent);
     }
 

@@ -9,16 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ParentFloorActivity"></activity>
-        <activity android:name=".ElevatorActivity">
+        <activity android:name=".Floor1Activity"
+            android:parentActivityName=".ParentFloorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Floor1Activity"
-            android:parentActivityName=".ParentFloorActivity">
         </activity>
         <activity android:name=".Floor2Activity"
             android:parentActivityName=".ParentFloorActivity">
