@@ -6,20 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.bignerdranch.android.escapeovatortemp.R;
-
-public class Floor1Activity extends ParentFloorActivity {
-    private static final String TAG = "Floor1Activity";
+public abstract class ParentFloorActivity extends AppCompatActivity {
+    private static final String TAG = "ParentFloorActivity";
 
     public static Intent newIntent(Context packageContext){
-        Intent intent = new Intent(packageContext, Floor1Activity.class);
+        Intent intent = new Intent(packageContext, ParentFloorActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_floor1);
+        setContentView(R.layout.activity_parent_floor);
     }
 
     @Override

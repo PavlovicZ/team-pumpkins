@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.bignerdranch.android.escapeovatortemp.R;
 
-public class Floor2Activity extends AppCompatActivity {
+public class Floor2Activity extends ParentFloorActivity {
     private static final String TAG = "Floor2Activity";
 
     public static Intent newIntent(Context packageContext){

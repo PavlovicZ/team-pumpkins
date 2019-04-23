@@ -87,26 +87,8 @@ public class ElevatorActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(KEY_INDEX, mFloor);
-        if (mFloor == 1) {
-            Intent intent = new Intent(ElevatorActivity.this, Floor1Activity.class);
-            startActivity(intent);
-        }
-        else if (mFloor == 2){
-            Intent intent = new Intent(ElevatorActivity.this, Floor2Activity.class);
-            startActivity(intent);
-        }
-        else if (mFloor == 3){
-            Intent intent = new Intent(ElevatorActivity.this, Floor3Activity.class);
-            startActivity(intent);
-        }
-        else if (mFloor == 4){
-            Intent intent = new Intent(ElevatorActivity.this, Floor4Activity.class);
-            startActivity(intent);
-        }
-        else if (mFloor == 5){
-            Intent intent = new Intent(ElevatorActivity.this, Floor5Activity.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(ElevatorActivity.this, ParentFloorActivity.class);
+        startActivity(intent);
     }
 
     @Override
