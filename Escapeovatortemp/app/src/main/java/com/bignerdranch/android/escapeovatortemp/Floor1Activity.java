@@ -27,7 +27,7 @@ public class Floor1Activity extends ParentFloorActivity {
         Button elevatorButton = new Button(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getFragmentManager();
+                FragmentManager manager = getSupportFragmentManager();
                 ElevatorFragment.instantiate(); //I'm fixing this :c
             }
         });
