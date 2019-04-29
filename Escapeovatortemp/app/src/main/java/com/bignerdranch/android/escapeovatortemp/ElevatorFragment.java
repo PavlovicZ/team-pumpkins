@@ -1,10 +1,11 @@
 package com.bignerdranch.android.escapeovatortemp;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.Intent;
-import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,10 @@ public class ElevatorFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateDialog() called");
         super.onCreate(savedInstanceState);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.activity_elevator, null);
 
         mElevatorButtons = (RadioGroup) view.findViewById(R.id.elevator_buttons);
@@ -55,7 +59,8 @@ public class ElevatorFragment extends DialogFragment {
                 }
             }
         });
-        return null;
+        builder.setView(view);
+        return builder.show();
     }
 
     @Override
@@ -80,13 +85,8 @@ public class ElevatorFragment extends DialogFragment {
     public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
-        Intent intent = new Intent(ElevatorFragment.this, ParentFloorActivity.class);
-        startActivity(intent, Bundle savedInstanceState);
-    }
-
-    public void onSaveInstanceState() {
-        super.onSaveInstanceState(Bundle savedInstanceState);
-
+        Intent intent = new Intent(getContext(), ParentFloorActivity.class);
+        startActivity(intent, new Bundle());
     }
 
 
@@ -95,4 +95,13 @@ public class ElevatorFragment extends DialogFragment {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
     }
+
+    public static ElevatorFragment newInstance() {
+        Bundle args = new Bundle();
+
+        ElevatorFragment fragment = new ElevatorFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 }

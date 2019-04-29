@@ -2,7 +2,9 @@ package com.bignerdranch.android.escapeovatortemp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,25 +32,30 @@ public class ParentFloorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_floor);
 
-        Button elevatorButton = new Button(new View.OnClickListener() {
+
+        Button elevatorButton = (Button) (findViewById(R.id.elevator_button));
+        elevatorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getSupportFragmentManager();
-                ElevatorFragment.instantiate(); //I'm fixing this :c
+             ElevatorFragment fragment = new ElevatorFragment();
+             FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.add(fragment, null);
+                transaction.commit();
             }
         });
 
-        mNoteButton = (Button) view.findViewById(R.id.note_button);
+   /*     mNoteButton = (Button) findViewById(R.id.note_button);
         mNoteButton = new Button(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent note = newIntent(ParentFloorActivity.this, Notepad.class);
+                Intent note = newIntent(getApplicationContext(), Notepad.class);
                 startActivityForResult(note, NOTE);
             }
         });
-
-        mFlashlightButton = (Button) view.findViewById(R.id.flashlight_button);
-        mFlashlightButton = new Button(new View.OnClickListener() {
+*/
+        mFlashlightButton = (Button) findViewById(R.id.flashlight_button);
+        mFlashlightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //will change background
@@ -58,8 +65,8 @@ public class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-        mBlacklightButton = (Button) view.findViewById(R.id.blacklight_button);
-        mBlacklightButton = new Button(new View.OnClickListener() {
+        mBlacklightButton = (Button) findViewById(R.id.blacklight_button);
+        mBlacklightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //will change background
@@ -69,8 +76,8 @@ public class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-        mKeyButton = (Button) view.findViewById(R.id.key_button);
-        mKeyButton = new Button(new View.OnClickListener() {
+        mKeyButton = (Button) findViewById(R.id.key_button);
+        mKeyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //will change background
@@ -80,8 +87,8 @@ public class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-        mLockpickButton = (Button) view.findViewById(R.id.lockpick_button);
-        mLockpickButton = new Button(new View.OnClickListener() {
+        mLockpickButton = (Button) findViewById(R.id.lockpick_button);
+        mLockpickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //will change background

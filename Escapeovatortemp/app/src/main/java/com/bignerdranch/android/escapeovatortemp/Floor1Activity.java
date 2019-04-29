@@ -20,12 +20,6 @@ public class Floor1Activity extends ParentFloorActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_floor1);
-    }
-
-    @Override
     protected void onStart(){
         super.onStart();
         Log.d(TAG, "onStart() called");
