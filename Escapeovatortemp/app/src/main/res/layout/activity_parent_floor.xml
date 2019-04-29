@@ -7,5 +7,64 @@
         android:id="@+id/parentfloor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/maintenance" />
+        android:text="@string/parent_floor" />
+
+    <Button
+        android:id="@+id/elevator_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationY="50dp"
+        android:text="Elevator"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/note_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:translationX="150dp"
+            android:visibility="invisible"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/flashlight_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="invisible"
+            android:translationX="100dp"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/key_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="invisible"
+            android:translationX="150dp"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/lockpick_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="invisible"
+            android:translationX="450dp"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/blacklight_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationX="550dp"
+            android:visibility="invisible"
+            android:layout_gravity="bottom"
+            android:text="Button" />
+    </FrameLayout>
 </FrameLayout>

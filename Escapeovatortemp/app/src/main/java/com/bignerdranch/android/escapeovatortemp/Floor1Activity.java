@@ -23,14 +23,6 @@ public class Floor1Activity extends ParentFloorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor1);
-
-        Button elevatorButton = new Button(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager manager = getSupportFragmentManager();
-                ElevatorFragment.instantiate(); //I'm fixing this :c
-            }
-        });
     }
 
     @Override

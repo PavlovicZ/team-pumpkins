@@ -80,6 +80,13 @@ public class ElevatorFragment extends DialogFragment {
     public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
+        Intent intent = new Intent(ElevatorFragment.this, ParentFloorActivity.class);
+        startActivity(intent, Bundle savedInstanceState);
+    }
+
+    public void onSaveInstanceState() {
+        super.onSaveInstanceState(Bundle savedInstanceState);
+
     }
 
 
