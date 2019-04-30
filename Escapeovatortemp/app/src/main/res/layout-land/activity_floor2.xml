@@ -20,4 +20,33 @@
         android:visibility="invisible"
         android:src="@drawable/ic_launcher_foreground"/>
 
+    <FrameLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="bottom">
+
+        <ImageButton android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Button"
+            android:id="@+id/note_button"
+            android:translationX="100dp"
+            android:layout_gravity="bottom"/>
+
+        <ImageButton android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Button"
+            android:id="@+id/flashlight_button"
+            android:translationX="200dp"
+            android:layout_gravity="bottom"
+            android:enabled="false"/>
+
+        <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Button" android:id="@+id/xrayglasses_button" android:translationX="300dp" android:layout_gravity="bottom" android:enabled="false"/>
+
+        <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Button" android:id="@+id/key_button" android:translationX="400dp" android:layout_gravity="bottom" android:enabled="false"/>
+
+        <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Button" android:id="@+id/lockpick_button" android:translationX="500dp" android:layout_gravity="bottom" android:enabled="false"/>
+
+        <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Button" android:id="@+id/blacklight_button" android:translationX="600dp" android:layout_gravity="bottom" android:enabled="false"/>
+
+    </FrameLayout>
+
 </FrameLayout>

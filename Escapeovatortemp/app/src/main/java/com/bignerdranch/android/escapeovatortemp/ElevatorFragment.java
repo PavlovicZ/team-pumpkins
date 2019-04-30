@@ -1,5 +1,6 @@
 package com.bignerdranch.android.escapeovatortemp;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class ElevatorFragment extends DialogFragment {
     private static final String TAG = "ElevatorFragment";
@@ -70,13 +72,31 @@ public class ElevatorFragment extends DialogFragment {
         mEnterFloorButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = ParentFloorActivity.newIntent(getActivity(), mFloor);
-                startActivityForResult(intent, REQUEST_FLOOR);
+                if (mFloor != 1 && mFloor != 2 && mFloor != 3 && mFloor != 4 && mFloor != 5){
+                    Toast.makeText(ElevatorFragment.this, R.string.missing_floor_input, Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = ParentFloorActivity.newIntent(getActivity(), mFloor);
+                    startActivityForResult(intent, REQUEST_FLOOR);
+                }
             }
         });
 
         builder.setView(view);
         return builder.show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == REQUEST_FLOOR) {
+            if (data == null) {
+                return;
+            }
+            mFloor = ParentFloorActivity.insertFloor(data);
+        }
     }
 
     @Override

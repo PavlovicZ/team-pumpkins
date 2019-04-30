@@ -7,6 +7,7 @@
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="@string/parent_floor"
+        android:layout_gravity="center"
         android:id="@+id/parentfloor"/>
 
     <Button android:layout_height="wrap_content"

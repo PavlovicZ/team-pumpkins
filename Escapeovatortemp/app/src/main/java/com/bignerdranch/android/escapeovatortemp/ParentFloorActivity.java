@@ -7,7 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -19,6 +21,7 @@ public class ParentFloorActivity extends AppCompatActivity {
     public static final String KEY_LOCKPICK = "Lockpick";
     public static final String KEY_XRAYGLASSES = "XRayGlasses";
     public static final String KEY_CHEST = "Chest";
+    public static final String KEY_FLOOR = "Floor";
     private static final int NOTE = 0;
     public static final String EXTRA_FLOOR = "com.bignerdranch.android.escapeovatortemp.floor";
 
@@ -35,7 +38,7 @@ public class ParentFloorActivity extends AppCompatActivity {
 
     public ImageButton mGrabXRayGlassesButton;
 
-    public Button mNoteButton;
+    public ImageButton mNoteButton;
     public ImageButton mFlashlightButton;
     public ImageButton mXRayGlassesButton;
     public ImageButton mBlacklightButton;
@@ -57,12 +60,34 @@ public class ParentFloorActivity extends AppCompatActivity {
 
     private int mFloor;
 
+    public static int insertFloor(Intent result) {
+        return result.getIntExtra(EXTRA_FLOOR, 1);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_floor);
 
         mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
+
+        if(mFloor == 1){
+            Intent intent = Floor1Activity.newIntent(ParentFloorActivity.this, mFloor);
+            startActivity(intent);
+        } else if(mFloor == 2){
+            Intent intent = Floor2Activity.newIntent(ParentFloorActivity.this, mFloor);
+            startActivity(intent);
+        }else if(mFloor == 3){
+            Intent intent = Floor3Activity.newIntent(ParentFloorActivity.this, mFloor);
+            startActivity(intent);
+        }else if(mFloor == 4){
+            Intent intent = Floor4Activity.newIntent(ParentFloorActivity.this, mFloor);
+            startActivity(intent);
+        }else if(mFloor == 5){
+            Intent intent = Floor5Activity.newIntent(ParentFloorActivity.this, mFloor);
+            startActivity(intent);
+        }
+
 
         if (savedInstanceState != null){
             mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
@@ -173,14 +198,6 @@ public class ParentFloorActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop() called");
-        //Intent intent = new Intent(Floor1Activity.this, ElevatorFragment.class);
-        //startActivity(intent);
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle savedInstanceState){
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
@@ -190,6 +207,15 @@ public class ParentFloorActivity extends AppCompatActivity {
         savedInstanceState.putBoolean(KEY_LOCKPICK, mLockpickHeld);
         savedInstanceState.putBoolean(KEY_XRAYGLASSES, mXRayGlassesHeld);
         savedInstanceState.putBoolean(KEY_CHEST, mChestOpened);
+        savedInstanceState.putInt(KEY_FLOOR, mFloor);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop() called");
+        //Intent intent = new Intent(Floor1Activity.this, ElevatorFragment.class);
+        //startActivity(intent);
     }
 
     @Override
