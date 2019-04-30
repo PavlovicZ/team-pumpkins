@@ -4,9 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class Floor4Activity extends ParentFloorActivity {
     private static final String TAG = "Floor4Activity";
+
+
 
     public static Intent newIntent(Context packageContext){
         Intent intent = new Intent(packageContext, Floor4Activity.class);
@@ -17,6 +21,17 @@ public class Floor4Activity extends ParentFloorActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor4);
+
+        mGrabLockpickButton = (ImageButton) findViewById(R.id.grab_lockpick);
+        mGrabLockpickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLockpickHeld = true;
+                updateToolbar();
+            }
+        });
+
+        updateToolbar();
     }
 
     @Override

@@ -9,12 +9,20 @@ import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_BLACKLIGHT;
+import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_FLASHLIGHT;
+import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_KEY;
+import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_LOCKPICK;
+import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_XRAYGLASSES;
+
 public class ElevatorFragment extends DialogFragment {
     private static final String TAG = "ElevatorFragment";
-    private static final String KEY_INDEX = "index";
+    private static final String KEY_FLOOR = "Floor";
+    private static final int REQUEST_FLOOR = 0;
 
     private RadioGroup mElevatorButtons;
     private RadioButton mFloorButton1;
@@ -22,13 +30,18 @@ public class ElevatorFragment extends DialogFragment {
     private RadioButton mFloorButton3;
     private RadioButton mFloorButton4;
     private RadioButton mFloorButton5;
-    private int mFloor;
+    private Button mEnterFloorButton;
+    private int mFloor = 0;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Log.d(TAG, "onCreateDialog() called");
         super.onCreate(savedInstanceState);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        if (savedInstanceState != null){
+            mFloor = savedInstanceState.getInt(KEY_FLOOR, mFloor);
+        }
 
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.activity_elevator, null);
 
@@ -59,6 +72,16 @@ public class ElevatorFragment extends DialogFragment {
                 }
             }
         });
+
+        mEnterFloorButton = (Button) view.findViewById(R.id.enter_floor);
+        mEnterFloorButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = ParentFloorActivity.newIntent(ElevatorFragment.this, mFloor);
+                startActivityForResult(intent, REQUEST_FLOOR);
+            }
+        });
+
         builder.setView(view);
         return builder.show();
     }
@@ -81,6 +104,12 @@ public class ElevatorFragment extends DialogFragment {
         Log.d(TAG, "onPause() called");
     }
 
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_FLOOR, mFloor);
+    }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -98,7 +127,6 @@ public class ElevatorFragment extends DialogFragment {
 
     public static ElevatorFragment newInstance() {
         Bundle args = new Bundle();
-
         ElevatorFragment fragment = new ElevatorFragment();
         fragment.setArguments(args);
         return fragment;

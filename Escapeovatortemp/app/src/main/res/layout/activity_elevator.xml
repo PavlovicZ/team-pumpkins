@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/enter_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_floor" />
+
     <RadioGroup
         android:id="@+id/elevator_buttons"
         android:layout_width="wrap_content"

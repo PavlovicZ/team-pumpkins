@@ -8,14 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.bignerdranch.android.escapeovatortemp.R;
 
 public class Floor1Activity extends ParentFloorActivity {
     private static final String TAG = "Floor1Activity";
 
-    private Button mElevatorButton;
-    private Button mNoteButton;
+
 
     public static Intent newIntent(Context packageContext){
         Intent intent = new Intent(packageContext, Floor1Activity.class);
@@ -36,7 +36,8 @@ public class Floor1Activity extends ParentFloorActivity {
             }
         });
 
-        mNoteButton = findViewById(R.id.note_button);
+        /*
+        mNoteButton = (Button) findViewById(R.id.note_button);
         mNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +45,18 @@ public class Floor1Activity extends ParentFloorActivity {
                 startActivity(i);
             }
         });
+        */
+
+        mGrabFlashlightButton = (ImageButton) findViewById(R.id.grab_flashlight);
+        mGrabFlashlightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFlashlightHeld = true;
+                updateToolbar();
+            }
+        });
+
+        updateToolbar();
     }
 
     @Override

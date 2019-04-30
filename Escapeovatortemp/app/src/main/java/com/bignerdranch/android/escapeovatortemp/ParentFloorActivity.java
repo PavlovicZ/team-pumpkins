@@ -9,21 +9,69 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-public abstract class ParentFloorActivity extends AppCompatActivity {
+public class ParentFloorActivity extends AppCompatActivity {
     private static final String TAG = "ParentFloorActivity";
+    public static final String KEY_FLASHLIGHT = "Flashlight";
+    public static final String KEY_BLACKLIGHT = "Blacklight";
+    public static final String KEY_KEY = "Key";
+    public static final String KEY_LOCKPICK = "Lockpick";
+    public static final String KEY_XRAYGLASSES = "XRayGlasses";
+    public static final String KEY_CHEST = "Chest";
+    private static final int NOTE = 0;
+    public static final String EXTRA_FLOOR = "com.bignerdranch.android.escapeovatortemp.floor";
 
-    private Button mElevatorButton;
-    private Button mFlashlightButton;
-    private Button mBlacklightButton;
-    private Button mKeyButton;
-    private Button mLockpickButton;
+    public Button mElevatorButton;
+
+    public ImageButton mGrabFlashlightButton;
+
+    public ImageButton mGrabKeyButton;
+    public ImageButton mChestButton;
+
+    public ImageButton mGrabBlacklightButton;
+
+    public ImageButton mGrabLockpickButton;
+
+    public ImageButton mGrabXRayGlassesButton;
+
+    public ImageButton mNoteButton;
+    public ImageButton mFlashlightButton;
+    public ImageButton mXRayGlassesButton;
+    public ImageButton mBlacklightButton;
+    public ImageButton mKeyButton;
+    public ImageButton mLockpickButton;
+
+    public Boolean mFlashlightHeld;
+    public Boolean mXRayGlassesHeld;
+    public Boolean mBlacklightHeld;
+    public Boolean mKeyHeld;
+    public Boolean mLockpickHeld;
+    public Boolean mChestOpened;
+
+    public static Intent newIntent(Context packageContext, int mFloor) {
+        Intent intent = new Intent(packageContext, ParentFloorActivity.class);
+        intent.putExtra(EXTRA_FLOOR, mFloor);
+        return intent;
+    }
+
+    private int mFloor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_floor);
 
+        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
+
+        if (savedInstanceState != null){
+            mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
+            mFlashlightHeld = savedInstanceState.getBoolean(KEY_FLASHLIGHT, false);
+            mBlacklightHeld = savedInstanceState.getBoolean(KEY_BLACKLIGHT, false);
+            mKeyHeld = savedInstanceState.getBoolean(KEY_KEY, false);
+            mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
+            mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
+        }
 
         mElevatorButton = (Button) (findViewById(R.id.elevator_button));
         mElevatorButton.setOnClickListener(new View.OnClickListener() {
@@ -37,58 +85,73 @@ public abstract class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-   /*     mNoteButton = (Button) findViewById(R.id.note_button);
-        mNoteButton = new Button(new View.OnClickListener() {
+       mNoteButton = (ImageButton) findViewById(R.id.note_button);
+        mNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent note = newIntent(getApplicationContext(), Notepad.class);
+                Intent note = new Intent(getApplicationContext(), MenuFragment.class);
                 startActivityForResult(note, NOTE);
             }
         });
-*/
-        mFlashlightButton = (Button) findViewById(R.id.flashlight_button);
+
+        mFlashlightButton = (ImageButton) findViewById(R.id.flashlight_button);
         mFlashlightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //will change background
                 if (mFlashlightButton.isEnabled()) {
+                    if (mFloor == 5){
+                        mGrabXRayGlassesButton.setVisibility(View.VISIBLE);
+                    }
                     //changes background of specific floor
                 }
             }
         });
 
-        mBlacklightButton = (Button) findViewById(R.id.blacklight_button);
+        mXRayGlassesButton = (ImageButton) findViewById(R.id.xrayglasses_button);
+        mXRayGlassesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mXRayGlassesButton.isEnabled()) {
+                    if (mFloor == 2){
+                        mGrabKeyButton.setVisibility(View.VISIBLE);
+                        mChestButton.setVisibility(View.VISIBLE);
+                    }
+                    //changes background of specific floor
+                }
+            }
+        });
+
+        mBlacklightButton = (ImageButton) findViewById(R.id.blacklight_button);
         mBlacklightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //will change background
                 if (mBlacklightButton.isEnabled()) {
                     //changes background of specific floor
                 }
             }
         });
 
-        mKeyButton = (Button) findViewById(R.id.key_button);
+        mKeyButton = (ImageButton) findViewById(R.id.key_button);
         mKeyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //will change background
                 if (mKeyButton.isEnabled()) {
                     //changes background of specific floor
                 }
             }
         });
 
-        mLockpickButton = (Button) findViewById(R.id.lockpick_button);
+        mLockpickButton = (ImageButton) findViewById(R.id.lockpick_button);
         mLockpickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //will change background
                 if (mLockpickButton.isEnabled()) {
                     //changes background of specific floor
                 }
             }
         });
+
+        updateToolbar();
     }
 
     @Override
@@ -118,8 +181,38 @@ public abstract class ParentFloorActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putBoolean(KEY_FLASHLIGHT, mFlashlightHeld);
+        savedInstanceState.putBoolean(KEY_BLACKLIGHT, mBlacklightHeld);
+        savedInstanceState.putBoolean(KEY_KEY, mKeyHeld);
+        savedInstanceState.putBoolean(KEY_LOCKPICK, mLockpickHeld);
+        savedInstanceState.putBoolean(KEY_XRAYGLASSES, mXRayGlassesHeld);
+        savedInstanceState.putBoolean(KEY_CHEST, mChestOpened);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
+    }
+
+    public void updateToolbar() {
+        if (mFlashlightHeld = true){
+            mFlashlightButton.isEnabled();
+        }
+        if (mBlacklightHeld = true){
+            mBlacklightButton.isEnabled();
+        }
+        if (mXRayGlassesHeld = true){
+            mXRayGlassesButton.isEnabled();
+        }
+        if (mKeyHeld = true){
+            mKeyButton.isEnabled();
+        }
+        if (mLockpickHeld = true){
+            mLockpickButton.isEnabled();
+        }
     }
 }

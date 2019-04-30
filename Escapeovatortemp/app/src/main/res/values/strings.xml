@@ -28,7 +28,7 @@
 
     <string name="maintenance">Maintenance</string>
 
-    <string name="kitchen">Kitchen</string>
+    <string name="hotel">Hotel Room</string>
 
     <string name="managers_office">Manager\'s Office</string>
 
@@ -37,4 +37,8 @@
     <string name="note_button">Open Notepad</string>
 
     <string name="new_note_button">Add New Note</string>
+
+    <string name="enter_floor">Enter Floor</string>
+
+    <string name="safe_code">Safe: 64209</string>
 </resources>
