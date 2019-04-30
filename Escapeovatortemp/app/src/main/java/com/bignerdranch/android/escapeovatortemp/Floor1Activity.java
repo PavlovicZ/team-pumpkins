@@ -14,9 +14,36 @@ import com.bignerdranch.android.escapeovatortemp.R;
 public class Floor1Activity extends ParentFloorActivity {
     private static final String TAG = "Floor1Activity";
 
+    private Button mElevatorButton;
+    private Button mNoteButton;
+
     public static Intent newIntent(Context packageContext){
         Intent intent = new Intent(packageContext, Floor1Activity.class);
         return intent;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_floor1);
+
+        mElevatorButton = findViewById(R.id.elevator_button);
+        mElevatorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getSupportFragmentManager();
+                //ElevatorFragment.instantiate(); //I'm fixing this :c
+            }
+        });
+
+        mNoteButton = findViewById(R.id.note_button);
+        mNoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Floor1Activity.this, MenuActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
