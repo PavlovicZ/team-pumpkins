@@ -3,6 +3,12 @@
 
     <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/maintenance" android:layout_gravity="center" android:id="@+id/floor4"/>
 
+    <Button android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Elevator"
+        android:id="@+id/elevator_button"
+        android:translationY="50dp"/>
+
     <ImageButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/grab_lockpick" android:src="@drawable/ic_launcher_background" android:translationY="250dp" android:translationX="550dp" android:visibility="invisible"/>
 
 </FrameLayout>

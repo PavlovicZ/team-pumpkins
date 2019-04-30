@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 
@@ -43,10 +44,22 @@ public class NoteFragment extends Fragment {
         super.onCreate(savedInstanceState);
         UUID noteId = (UUID) getArguments().getSerializable(ARG_NOTE_ID);
         mFloorNum = getArguments().getInt(ARG_FLOOR_NUM);
+
+        // Check the database for the note
         mNote = Notepad.get(getActivity()).getNote(noteId);
+
         if(mNote == null)
         {
-            mNote = new Note(mFloorNum, "Player-generated note", true);
+            // If the note is in the auto-generated note list, retrieve it
+            mNote = Floor1Activity.getNote(noteId);
+            if(mNote == null)
+            {
+                // The note is a new note, so generate it now
+                mNote = new Note(mFloorNum, "Player-generated note", true);
+
+            }
+
+            // Add the note to the database
             Notepad.get(getActivity()).addNote(mNote);
         }
     }

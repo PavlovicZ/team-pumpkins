@@ -35,19 +35,19 @@ public class ParentFloorActivity extends AppCompatActivity {
 
     public ImageButton mGrabXRayGlassesButton;
 
-    public ImageButton mNoteButton;
+    public Button mNoteButton;
     public ImageButton mFlashlightButton;
     public ImageButton mXRayGlassesButton;
     public ImageButton mBlacklightButton;
     public ImageButton mKeyButton;
     public ImageButton mLockpickButton;
 
-    public Boolean mFlashlightHeld;
-    public Boolean mXRayGlassesHeld;
-    public Boolean mBlacklightHeld;
-    public Boolean mKeyHeld;
-    public Boolean mLockpickHeld;
-    public Boolean mChestOpened;
+    public Boolean mFlashlightHeld = false;
+    public Boolean mXRayGlassesHeld = false;
+    public Boolean mBlacklightHeld = false;
+    public Boolean mKeyHeld = false;
+    public Boolean mLockpickHeld = false;
+    public Boolean mChestOpened = false;
 
     public static Intent newIntent(Context packageContext, int mFloor) {
         Intent intent = new Intent(packageContext, ParentFloorActivity.class);
@@ -85,14 +85,14 @@ public class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-       mNoteButton = (ImageButton) findViewById(R.id.note_button);
+       /*mNoteButton = (ImageButton) findViewById(R.id.note_button);
         mNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent note = new Intent(getApplicationContext(), MenuFragment.class);
                 startActivityForResult(note, NOTE);
             }
-        });
+        });*/
 
         mFlashlightButton = (ImageButton) findViewById(R.id.flashlight_button);
         mFlashlightButton.setOnClickListener(new View.OnClickListener() {

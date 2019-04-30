@@ -10,13 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Floor1Activity"
-            android:parentActivityName=".ParentFloorActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".Floor1Activity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name=".Floor2Activity"
@@ -30,6 +29,7 @@
         <activity
             android:name=".Floor5Activity"
             android:parentActivityName=".ParentFloorActivity" />
+        <activity android:name=".ParentFloorActivity"/>
         <activity android:name=".MenuActivity" />
         <activity android:name=".SingleFragmentActivity" />
         <activity

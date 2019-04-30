@@ -2,7 +2,6 @@ package com.bignerdranch.android.escapeovatortemp;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -12,12 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
-import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_BLACKLIGHT;
-import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_FLASHLIGHT;
-import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_KEY;
-import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_LOCKPICK;
-import static com.bignerdranch.android.escapeovatortemp.ParentFloorActivity.KEY_XRAYGLASSES;
 
 public class ElevatorFragment extends DialogFragment {
     private static final String TAG = "ElevatorFragment";
@@ -43,7 +36,7 @@ public class ElevatorFragment extends DialogFragment {
             mFloor = savedInstanceState.getInt(KEY_FLOOR, mFloor);
         }
 
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.activity_elevator, null);
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_elevator, null);
 
         mElevatorButtons = (RadioGroup) view.findViewById(R.id.elevator_buttons);
 
@@ -77,7 +70,7 @@ public class ElevatorFragment extends DialogFragment {
         mEnterFloorButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = ParentFloorActivity.newIntent(ElevatorFragment.this, mFloor);
+                Intent intent = ParentFloorActivity.newIntent(getActivity(), mFloor);
                 startActivityForResult(intent, REQUEST_FLOOR);
             }
         });
