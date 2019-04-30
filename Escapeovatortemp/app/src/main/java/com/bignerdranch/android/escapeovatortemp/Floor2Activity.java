@@ -27,7 +27,16 @@ public class Floor2Activity extends ParentFloorActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor2);
 
-        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
+        if (savedInstanceState != null){
+            mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
+            mFlashlightHeld = savedInstanceState.getBoolean(KEY_FLASHLIGHT, false);
+            mBlacklightHeld = savedInstanceState.getBoolean(KEY_BLACKLIGHT, false);
+            mKeyHeld = savedInstanceState.getBoolean(KEY_KEY, false);
+            mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
+            mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
+        }
+
+        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 2);
 
         mChestButton = (ImageButton) findViewById(R.id.chest_button);
         mChestButton.setOnClickListener(new View.OnClickListener() {

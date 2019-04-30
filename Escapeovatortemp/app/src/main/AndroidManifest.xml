@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Floor1Activity">
+            android:name=".Floor1Activity"
+            android:parentActivityName=".ParentFloorActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 

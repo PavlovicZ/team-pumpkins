@@ -27,7 +27,16 @@ public class Floor3Activity extends ParentFloorActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor3);
 
-        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
+        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 3);
+
+        if (savedInstanceState != null){
+            mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
+            mFlashlightHeld = savedInstanceState.getBoolean(KEY_FLASHLIGHT, false);
+            mBlacklightHeld = savedInstanceState.getBoolean(KEY_BLACKLIGHT, false);
+            mKeyHeld = savedInstanceState.getBoolean(KEY_KEY, false);
+            mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
+            mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
+        }
 
         mGrabBlacklightButton = (ImageButton) findViewById(R.id.grab_blacklight);
         mGrabBlacklightButton.setOnClickListener(new View.OnClickListener() {

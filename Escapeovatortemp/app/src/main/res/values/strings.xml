@@ -43,4 +43,6 @@
     <string name="safe_code">Safe: 64209</string>
 
     <string name="missing_floor_input">Select Floor</string>
+
+    <string name="elevator">Elevator</string>
 </resources>

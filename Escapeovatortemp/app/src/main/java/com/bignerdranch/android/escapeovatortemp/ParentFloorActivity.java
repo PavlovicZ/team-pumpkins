@@ -28,6 +28,7 @@ public class ParentFloorActivity extends AppCompatActivity {
     public Button mElevatorButton;
 
     public ImageButton mGrabFlashlightButton;
+    public ImageButton mSafeButton;
 
     public ImageButton mGrabKeyButton;
     public ImageButton mChestButton;
@@ -52,11 +53,13 @@ public class ParentFloorActivity extends AppCompatActivity {
     public Boolean mLockpickHeld = false;
     public Boolean mChestOpened = false;
 
+    /*
     public static Intent newIntent(Context packageContext, int mFloor) {
         Intent intent = new Intent(packageContext, ParentFloorActivity.class);
         intent.putExtra(EXTRA_FLOOR, mFloor);
         return intent;
     }
+    */
 
     private int mFloor;
 
@@ -71,6 +74,7 @@ public class ParentFloorActivity extends AppCompatActivity {
 
         mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
 
+        /*
         if(mFloor == 1){
             Intent intent = Floor1Activity.newIntent(ParentFloorActivity.this, mFloor);
             startActivity(intent);
@@ -87,7 +91,7 @@ public class ParentFloorActivity extends AppCompatActivity {
             Intent intent = Floor5Activity.newIntent(ParentFloorActivity.this, mFloor);
             startActivity(intent);
         }
-
+        */
 
         if (savedInstanceState != null){
             mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
@@ -110,14 +114,16 @@ public class ParentFloorActivity extends AppCompatActivity {
             }
         });
 
-       /*mNoteButton = (ImageButton) findViewById(R.id.note_button);
+       /*
+       mNoteButton = (ImageButton) findViewById(R.id.note_button);
         mNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent note = new Intent(getApplicationContext(), MenuFragment.class);
                 startActivityForResult(note, NOTE);
             }
-        });*/
+        });
+        */
 
         mFlashlightButton = (ImageButton) findViewById(R.id.flashlight_button);
         mFlashlightButton.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +184,7 @@ public class ParentFloorActivity extends AppCompatActivity {
 
         updateToolbar();
     }
-
+    /*
     @Override
     protected void onStart(){
         super.onStart();
@@ -214,8 +220,8 @@ public class ParentFloorActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop() called");
-        //Intent intent = new Intent(Floor1Activity.this, ElevatorFragment.class);
-        //startActivity(intent);
+        Intent intent = new Intent(ParentFloorActivity.this, Floor1Activity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -223,7 +229,7 @@ public class ParentFloorActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
     }
-
+*/
     public void updateToolbar() {
         if (mFlashlightHeld = true){
             mFlashlightButton.isEnabled();

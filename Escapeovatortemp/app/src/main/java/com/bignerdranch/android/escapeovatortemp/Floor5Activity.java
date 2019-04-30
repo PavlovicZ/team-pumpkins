@@ -27,7 +27,16 @@ public class Floor5Activity extends ParentFloorActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_floor5);
 
-        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 1);
+        mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 5);
+
+        if (savedInstanceState != null){
+            mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
+            mFlashlightHeld = savedInstanceState.getBoolean(KEY_FLASHLIGHT, false);
+            mBlacklightHeld = savedInstanceState.getBoolean(KEY_BLACKLIGHT, false);
+            mKeyHeld = savedInstanceState.getBoolean(KEY_KEY, false);
+            mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
+            mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
+        }
 
         mGrabXRayGlassesButton = (ImageButton) findViewById(R.id.grab_xrayglasses);
         mGrabXRayGlassesButton.setOnClickListener(new View.OnClickListener() {
