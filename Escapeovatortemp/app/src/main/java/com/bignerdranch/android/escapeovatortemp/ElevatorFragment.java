@@ -73,8 +73,8 @@ public class ElevatorFragment extends DialogFragment {
             @Override
             public void onClick(View v){
                 if (mFloor != 1 && mFloor != 2 && mFloor != 3 && mFloor != 4 && mFloor != 5){
-                    Toast.makeText(ElevatorFragment.this, R.string.missing_floor_input, Toast.LENGTH_SHORT).show();
-                } else {
+                    Toast.makeText(getActivity(), R.string.missing_floor_input, Toast.LENGTH_SHORT).show();
+                } else if (mFloor == 1) {
                     Intent intent = ParentFloorActivity.newIntent(getActivity(), mFloor);
                     startActivityForResult(intent, REQUEST_FLOOR);
                 }
