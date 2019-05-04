@@ -4,12 +4,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.bignerdranch.android.escapeovatortemp.database.NoteCursorWrapper;
 import com.bignerdranch.android.escapeovatortemp.database.NoteDBHelper;
 import com.bignerdranch.android.escapeovatortemp.database.NoteDBSchema;
 import com.bignerdranch.android.escapeovatortemp.database.NoteDBSchema.NoteTable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -97,6 +101,7 @@ public class Notepad
         values.put(NoteTable.Cols.FLOOR_NUMBER, note.getFloorNum());
         values.put(NoteTable.Cols.NOTE_TEXT, note.getNoteText());
         values.put(NoteTable.Cols.EDITABLE, note.isEditable() ? 1 : 0);
+        values.put(NoteTable.Cols.IMAGE, getBytes(note.getImage()));
 
         return values;
     }
@@ -105,5 +110,25 @@ public class Notepad
     {
         Cursor cursor = mDatabase.query(NoteTable.NAME, null, whereClause, whereArgs, null, null, null);
         return new NoteCursorWrapper(cursor);
+    }
+
+    // convert from bitmap to byte array
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        try
+        {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 0, stream);
+            stream.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return stream.toByteArray();
+    }
+
+    // convert from byte array to bitmap
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 }

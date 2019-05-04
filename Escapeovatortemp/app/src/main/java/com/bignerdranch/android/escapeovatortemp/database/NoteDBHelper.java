@@ -21,7 +21,7 @@ public class NoteDBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + NoteTable.NAME + "( _id integer primary key autoincrement, " +
                 NoteTable.Cols.UUID + ", " + NoteTable.Cols.FLOOR_NUMBER + ", " + NoteTable.Cols.NOTE_TEXT
-                + ", " + NoteTable.Cols.EDITABLE + ")");
+                + ", " + NoteTable.Cols.EDITABLE + ", " + NoteTable.Cols.IMAGE + ")");
     }
 
     @Override

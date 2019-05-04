@@ -12,6 +12,7 @@ public class NoteDBSchema
             public static final String FLOOR_NUMBER = "floor";
             public static final String NOTE_TEXT = "note";
             public static final String EDITABLE = "editable";
+            public static final String IMAGE = "image";
         }
     }
 }

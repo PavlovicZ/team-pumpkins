@@ -29,4 +29,10 @@
         android:layout_height="match_parent"
         android:hint="@string/note_hint"/>
 
+    <ImageButton
+        android:id="@+id/note_image"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"/>
+
 </LinearLayout>

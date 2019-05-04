@@ -21,7 +21,8 @@ public class NoteCursorWrapper extends CursorWrapper
         int floorNumber = getInt(getColumnIndex(NoteTable.Cols.FLOOR_NUMBER));
         String noteText = getString(getColumnIndex(NoteTable.Cols.NOTE_TEXT));
         int isEditable = getInt(getColumnIndex(NoteTable.Cols.EDITABLE));
+        byte[] image = getBlob(getColumnIndex(NoteTable.Cols.IMAGE));
 
-        return new Note(UUID.fromString(uuidString), floorNumber, noteText, isEditable);
+        return new Note(UUID.fromString(uuidString), floorNumber, noteText, isEditable, image);
     }
 }
