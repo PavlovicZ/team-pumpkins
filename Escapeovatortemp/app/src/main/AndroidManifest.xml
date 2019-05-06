@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Floor1Activity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".ParentFloorActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -20,21 +21,29 @@
         </activity>
         <activity
             android:name=".Floor2Activity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".ParentFloorActivity" />
         <activity
             android:name=".Floor3Activity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".ParentFloorActivity" />
         <activity
             android:name=".Floor4Activity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".ParentFloorActivity" />
         <activity
             android:name=".Floor5Activity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".ParentFloorActivity" />
-        <activity android:name=".ParentFloorActivity"/>
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".SingleFragmentActivity" />
+        <activity android:name=".ParentFloorActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MenuActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".SingleFragmentActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".NoteActivity"
+            android:screenOrientation="landscape"
             android:parentActivityName=".SingleFragmentActivity" />
     </application>
 
