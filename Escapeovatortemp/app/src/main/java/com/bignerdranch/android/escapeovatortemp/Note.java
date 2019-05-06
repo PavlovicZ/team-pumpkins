@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import java.util.UUID;
 
 public class Note {
-    public static final Bitmap sDefaultImage = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.ic_launcher_background);
+    public static final Bitmap sDefaultImage = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.test_elephant);
 
     private UUID mId;
     private int mFloorNum;
@@ -36,8 +36,7 @@ public class Note {
         mImage = Notepad.getImage(image);
     }
 
-    //use this constructor for game generated notes, makes it so the player can't edit these
-    // This is currently in use for both game-generated and player-generated notes and will probably stay that way
+    // This is currently in use for just player-generated notes and will probably stay that way
     public Note (int floorNum, String noteText, boolean isEditable) {
 
         mId = UUID.randomUUID();
@@ -46,6 +45,16 @@ public class Note {
         this.mEditable = isEditable;
         // Set default image
         mImage = sDefaultImage;
+    }
+
+    //use this constructor for game generated notes, makes it so the player can't edit these
+    public Note (UUID id, int floorNum, String noteText, boolean isEditable, Bitmap image)
+    {
+        mId = id;
+        mFloorNum = floorNum;
+        mNoteText = noteText;
+        mEditable = isEditable;
+        mImage = image;
     }
 
     //empty constructor - also appears to go unused
