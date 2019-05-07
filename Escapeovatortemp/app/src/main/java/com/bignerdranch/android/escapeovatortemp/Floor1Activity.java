@@ -92,6 +92,7 @@ public class Floor1Activity extends ParentFloorActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Floor1Activity.this, MenuActivity.class);
+                i.putExtra(EXTRA_FLOOR, 1);
                 startActivity(i);
             }
         });

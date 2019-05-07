@@ -19,12 +19,29 @@ import java.util.UUID;
  * Anthony Hessler
  */
 public class MenuFragment extends Fragment {
+    private static final String ARG_FLOOR_NUM = "floor_num";
 
     private RecyclerView mRecyclerView;     // The RecyclerView that displays all the notes
     private NoteAdapter mAdapter;           // NoteAdapter for adapting the notes for the RecyclerView
     private Button mNewNoteButton;          // Adds a new note
     private int mFloorNum;                  // The floor number
     private UUID mDummyID = UUID.randomUUID();  // A random UUID for starting the NoteFragment
+
+    public static MenuFragment newInstance(int floorNum) {
+        Bundle args = new Bundle();
+        args.putInt(ARG_FLOOR_NUM, floorNum);
+
+        MenuFragment fragment = new MenuFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        mFloorNum = getArguments().getInt(ARG_FLOOR_NUM, 1);
+    }
 
     // Code that executes when the Fragment is created
     @Override

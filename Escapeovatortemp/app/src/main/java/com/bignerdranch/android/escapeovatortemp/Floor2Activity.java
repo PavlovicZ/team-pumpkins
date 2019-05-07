@@ -152,6 +152,7 @@ public class Floor2Activity extends ParentFloorActivity {
 
                     Intent intent = new Intent(Floor2Activity.this, VictoryActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -163,6 +164,7 @@ public class Floor2Activity extends ParentFloorActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Floor2Activity.this, MenuActivity.class);
+                i.putExtra(EXTRA_FLOOR, 2);
                 startActivity(i);
             }
         });

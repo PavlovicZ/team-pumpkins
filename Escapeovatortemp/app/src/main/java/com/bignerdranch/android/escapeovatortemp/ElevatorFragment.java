@@ -80,18 +80,23 @@ public class ElevatorFragment extends DialogFragment {
                 } else if (mFloor == 1) {
                     Intent intent = Floor1Activity.newIntent(getActivity());
                     startActivityForResult(intent, REQUEST_FLOOR);
+                    getActivity().finish();
                 } else if (mFloor == 2) {
                     Intent intent = Floor2Activity.newIntent(getActivity());
                     startActivityForResult(intent, REQUEST_FLOOR);
+                    getActivity().finish();
                 } else if (mFloor == 3) {
                     Intent intent = Floor3Activity.newIntent(getActivity());
                     startActivityForResult(intent, REQUEST_FLOOR);
+                    getActivity().finish();
                 } else if (mFloor == 4) {
                     Intent intent = Floor4Activity.newIntent(getActivity());
                     startActivityForResult(intent, REQUEST_FLOOR);
+                    getActivity().finish();
                 } else if (mFloor == 5) {
                     Intent intent = Floor5Activity.newIntent(getActivity());
                     startActivityForResult(intent, REQUEST_FLOOR);
+                    getActivity().finish();
                 }
             }
         });

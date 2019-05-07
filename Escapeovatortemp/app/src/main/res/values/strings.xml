@@ -48,7 +48,7 @@
 
     <string name="victory">Congratulations! You won!</string>
 
-    <string name="play_again">Play Again?</string>
+    <string name="close">Close</string>
 
     <string name="wrong_key">It doesn\'t fit.</string>
 </resources>

@@ -28,6 +28,11 @@ public class NoteDBHelper extends SQLiteOpenHelper
                 + ", " + NoteTable.Cols.EDITABLE + ", " + NoteTable.Cols.IMAGE + ")");
     }
 
+    public void clearDatabase(SQLiteDatabase db)
+    {
+        db.execSQL("delete from " + DATABASE_NAME);
+    }
+
     // Does absolutely nothing
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
