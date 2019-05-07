@@ -15,6 +15,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * H. Ben Reed, Anthony Hessler
+ * */
+
 public class ParentFloorActivity extends AppCompatActivity {
     //All tags and keys for savedInstanceStates and Extras
     //H. Ben Reed
@@ -58,6 +62,7 @@ public class ParentFloorActivity extends AppCompatActivity {
     public ImageView mBackground5;
 
     public TextView mClue;
+
     //Booleans that inform other activities, mainly child activities, of whether or not the user has a certain tool.
     //Used in conjunction with Anthony's SQLite code.
     //H. Ben Reed

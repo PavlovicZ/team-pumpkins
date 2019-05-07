@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * H. Ben Reed, Zach Pavlovich, Anthony Hessler
+ * */
+
 public class Floor5Activity extends ParentFloorActivity {
     private static final String TAG = "Floor5Activity";
 

@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.UUID;
+/**
+* H. Ben Reed, Zach Pavlovich, Anthony Hessler
+* */
 
 public class Floor1Activity extends ParentFloorActivity {
     private static final String TAG = "Floor1Activity";

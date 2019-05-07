@@ -16,6 +16,7 @@ import java.util.UUID;
 
 /**
  * Fragment for displaying the notes
+ * Anthony Hessler
  */
 public class MenuFragment extends Fragment {
 
