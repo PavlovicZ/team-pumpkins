@@ -18,14 +18,14 @@
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/grab_flashlight"
-        android:src="@drawable/flashlight_off"
-        android:layout_gravity="center_vertical|right"/>
+        android:src="@mipmap/ic_flashlight_off"
+        android:layout_gravity="center_vertical|end"/>
 
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/safe_button"
         android:src="@drawable/ic_launcher_foreground"
-        android:layout_gravity="center_vertical|left"/>
+        android:layout_gravity="center_vertical|start"/>
 
     <FrameLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -35,12 +35,12 @@
             android:layout_width="wrap_content"
             android:id="@+id/note_button"
             android:translationX="100dp"
-            android:src="@drawable/notebook"
+            android:src="@mipmap/ic_notebook"
             android:layout_gravity="bottom"/>
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/flashlight_off"
+            android:src="@mipmap/ic_flashlight_off"
             android:id="@+id/flashlight_button"
             android:translationX="200dp"
             android:layout_gravity="bottom"
@@ -48,7 +48,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/xray_off"
+            android:src="@mipmap/ic_xray_off"
             android:id="@+id/xrayglasses_button"
             android:translationX="300dp"
             android:layout_gravity="bottom"
@@ -56,7 +56,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/lockpick"
+            android:src="@mipmap/ic_lockpick"
             android:id="@+id/key_button"
             android:translationX="400dp"
             android:layout_gravity="bottom"
@@ -64,7 +64,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/lockpick"
+            android:src="@mipmap/ic_lockpick"
             android:id="@+id/lockpick_button"
             android:translationX="500dp"
             android:layout_gravity="bottom"
@@ -72,7 +72,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/uv_in_environment"
+            android:src="@mipmap/ic_uv_in_environment"
             android:id="@+id/blacklight_button"
             android:translationX="600dp"
             android:layout_gravity="bottom"

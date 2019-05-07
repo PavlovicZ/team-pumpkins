@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import java.util.UUID;
 
 public class Note {
-    public static final Bitmap sDefaultImage = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.test_elephant);
+    public static final Bitmap sDefaultImage = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.ic_notebook);
 
     private UUID mId;
     private int mFloorNum;
