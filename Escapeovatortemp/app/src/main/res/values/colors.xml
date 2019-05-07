@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="colorUV">#87CEFA</color>
+    <color name="colorUV">#800080</color>
+    <color name="BurlyWood">#8B4513</color>
 </resources>

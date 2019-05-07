@@ -97,6 +97,8 @@ public class Floor5Activity extends ParentFloorActivity {
             public void onClick(View v) {
                 if (mFlashlightButton.isEnabled()) {
                     mBackground5.setImageDrawable(getResources().getDrawable(R.drawable.ic_hallway_light));
+                    mFlashlightButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_flashlight_on));
+                    mFlashlightButton.setTranslationX(100);
                     if (mXRayGlassesHeld == false){
                         mGrabXRayGlassesButton.setVisibility(View.VISIBLE);
                     }

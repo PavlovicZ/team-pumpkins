@@ -98,11 +98,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:enabled="false"
-            android:scaleX="0.3"
-            android:scaleY="0.3"
-            android:translationY="80dp"
-            android:src="@drawable/ic_uv_in_environment"
-            android:translationX="450dp" />
+            android:scaleX="1"
+            android:scaleY="1"
+            android:translationY="0dp"
+            android:src="@drawable/ic_uv_off"
+            android:translationX="500dp" />
 
     </FrameLayout>
 

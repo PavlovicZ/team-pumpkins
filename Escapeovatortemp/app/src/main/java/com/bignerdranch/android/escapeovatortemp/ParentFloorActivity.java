@@ -276,12 +276,14 @@ public class ParentFloorActivity extends AppCompatActivity {
     {
         mClue.setVisibility(View.VISIBLE);
         mClue.setTextColor(getResources().getColor(R.color.colorUV));
+        mBlacklightButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_uv_on));
     }
 
-    //Function called when any other tool is used. Disables the effect of the blacklight
+    //Disables the effect of the blacklight. Currently not in use. Was originally called when other tools were used.
     //H. Ben Reed
     public void disableBlacklight()
     {
         mClue.setVisibility(View.INVISIBLE);
+        mBlacklightButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_uv_off));
     }
 }
