@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor_2"
+        android:textSize="0.25in"
         android:visibility="invisible"
         android:translationX="400dp"
         android:translationY="150dp"/>

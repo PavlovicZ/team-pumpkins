@@ -24,9 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor_5"
+        android:textSize="0.25in"
         android:visibility="invisible"
         android:translationX="300dp"
-        android:translationY="100dp"/>
+        android:translationY="50dp"/>
 
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -37,16 +38,6 @@
         android:translationY="-10dp"
         android:src="@drawable/ic_flashlight_off"
         android:layout_gravity="center_vertical|end"/>
-
-    <ImageButton android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/safe_button"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        android:translationX="100dp"
-        android:translationY="50dp"
-        android:src="@drawable/ic_lockpick"
-        android:layout_gravity="center_vertical|start"/>
 
     <FrameLayout android:layout_height="match_parent"
         android:layout_width="match_parent"

@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_chandelier"
-        android:translationY="-45dp"
-        android:translationX="270dp"/>
+        android:translationY="-75dp"
+        android:translationX="240dp"/>
 
     <Button android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -27,16 +27,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor_1"
+        android:textSize="0.25in"
         android:visibility="invisible"
         android:translationX="150dp"
-        android:translationY="100dp"/>
+        android:translationY="50dp"/>
 
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/grab_blacklight"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
-        android:translationY="10dp"
+        android:scaleX="0.3"
+        android:scaleY="0.3"
+        android:translationY="20dp"
         android:translationX="-200dp"
         android:src="@drawable/ic_uv_in_environment"
         android:layout_gravity="center_vertical|right"/>

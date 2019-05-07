@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ParentFloorActivity extends AppCompatActivity {
+    //All tags and keys for savedInstanceStates and Extras
+    //H. Ben Reed
     private static final String TAG = "ParentFloorActivity";
     public static final String KEY_FLASHLIGHT = "Flashlight";
     public static final String KEY_BLACKLIGHT = "Blacklight";
@@ -27,6 +29,10 @@ public class ParentFloorActivity extends AppCompatActivity {
     private static final int NOTE = 0;
     public static final String EXTRA_FLOOR = "com.bignerdranch.android.escapeovatortemp.floor";
 
+    public int mFloor;
+
+    //All Buttons, ImageButtons, and other widgets shared by all Child Activities
+    //H. Ben Reed
     public Button mElevatorButton;
 
     public ImageButton mGrabFlashlightButton;
@@ -51,14 +57,16 @@ public class ParentFloorActivity extends AppCompatActivity {
     public ImageView mBackground4;
     public ImageView mBackground5;
 
+    public TextView mClue;
+    //Booleans that inform other activities, mainly child activities, of whether or not the user has a certain tool.
+    //Used in conjunction with Anthony's SQLite code.
+    //H. Ben Reed
     public boolean mFlashlightHeld = false;
     public boolean mXRayGlassesHeld = false;
     public boolean mBlacklightHeld = false;
     public boolean mKeyHeld = false;
     public boolean mLockpickHeld = false;
     public boolean mChestOpened = false;
-
-    public TextView mClue;
 
     /*
     public static Intent newIntent(Context packageContext, int mFloor) {
@@ -67,8 +75,6 @@ public class ParentFloorActivity extends AppCompatActivity {
         return intent;
     }
     */
-
-    private int mFloor;
 
     public static int insertFloor(Intent result) {
         return result.getIntExtra(EXTRA_FLOOR, 1);
@@ -100,6 +106,8 @@ public class ParentFloorActivity extends AppCompatActivity {
         }
         */
 
+        //Failed savedInstanceState code, untouched to avoid messing with current functionality. Support dropped in favor of SQLite.
+        //H. Ben Reed
         if (savedInstanceState != null){
             mXRayGlassesHeld = savedInstanceState.getBoolean(KEY_XRAYGLASSES, false);
             mFlashlightHeld = savedInstanceState.getBoolean(KEY_FLASHLIGHT, false);
@@ -132,6 +140,8 @@ public class ParentFloorActivity extends AppCompatActivity {
         });
         */
 
+       //Base codes for all buttons, used as reference when writing code for ChildActivities
+        //H. Ben Reed
         mFlashlightButton = (ImageButton) findViewById(R.id.flashlight_button);
         mFlashlightButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,14 +270,16 @@ public class ParentFloorActivity extends AppCompatActivity {
         mLockpickButton.setEnabled(mLockpickHeld);
     }
 
+    //Reveals the number of the next floor to go to. Modifies the value defined as mClue for the current floor.
+    //H. Ben Reed
     public void useBlacklight()
     {
-        if (mBlacklightHeld)
-        {
-            mClue.setVisibility(View.VISIBLE);
-        }
+        mClue.setVisibility(View.VISIBLE);
+        mClue.setTextColor(getResources().getColor(R.color.colorUV));
     }
 
+    //Function called when any other tool is used. Disables the effect of the blacklight
+    //H. Ben Reed
     public void disableBlacklight()
     {
         mClue.setVisibility(View.INVISIBLE);
