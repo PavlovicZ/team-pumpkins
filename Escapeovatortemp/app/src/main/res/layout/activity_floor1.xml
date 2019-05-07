@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView android:layout_height="wrap_content"
+    <ImageView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/hotel"
+        android:src="@drawable/ic_ballroom"
         android:layout_gravity="center"
         android:id="@+id/floor1"/>
 

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/dark_hallway" android:layout_gravity="center" android:id="@+id/floor5"/>
+    <ImageView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_hallway_dark"
+        android:scaleX="1.61"
+        android:scaleY="2.48"
+        android:layout_gravity="center"
+        android:id="@+id/floor5"/>
 
     <Button android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -9,10 +15,23 @@
         android:id="@+id/elevator_button"
         android:translationY="50dp"/>
 
+    <TextView
+        android:id="@+id/floor_clue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/floor_2"
+        android:visibility="invisible"
+        android:translationX="400dp"
+        android:translationY="150dp"/>
+
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/grab_xrayglasses"
         android:src="@drawable/ic_xray_off"
+        android:scaleX="0.2"
+        android:scaleY="0.2"
+        android:translationX="-230dp"
+        android:translationY="20dp"
         android:layout_gravity="center_vertical|right"
         android:visibility="invisible"/>
 
@@ -23,7 +42,10 @@
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/note_button"
-            android:translationX="100dp"
+            android:translationX="30dp"
+            android:translationY="30dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
             android:src="@drawable/ic_notebook"
             android:layout_gravity="bottom"/>
 
@@ -31,7 +53,10 @@
             android:layout_width="wrap_content"
             android:src="@drawable/ic_flashlight_off"
             android:id="@+id/flashlight_button"
-            android:translationX="200dp"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            android:translationY="80dp"
+            android:translationX="80dp"
             android:layout_gravity="bottom"
             android:enabled="false"/>
 
@@ -39,15 +64,20 @@
             android:layout_width="wrap_content"
             android:src="@drawable/ic_xray_off"
             android:id="@+id/xrayglasses_button"
-            android:translationX="300dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:translationX="160dp"
             android:layout_gravity="bottom"
             android:enabled="false"/>
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_lockpick"
+            android:src="@drawable/ic_key"
+            android:scaleX="0.2"
+            android:scaleY="0.2"
+            android:translationY="110dp"
             android:id="@+id/key_button"
-            android:translationX="400dp"
+            android:translationX="200dp"
             android:layout_gravity="bottom"
             android:enabled="false"/>
 
@@ -55,17 +85,24 @@
             android:layout_width="wrap_content"
             android:src="@drawable/ic_lockpick"
             android:id="@+id/lockpick_button"
-            android:translationX="500dp"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            android:translationY="60dp"
+            android:translationX="320dp"
             android:layout_gravity="bottom"
             android:enabled="false"/>
 
-        <ImageButton android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/ic_uv_off"
+        <ImageButton
             android:id="@+id/blacklight_button"
-            android:translationX="600dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            android:translationY="80dp"
+            android:src="@drawable/ic_uv_in_environment"
+            android:translationX="450dp" />
 
     </FrameLayout>
 

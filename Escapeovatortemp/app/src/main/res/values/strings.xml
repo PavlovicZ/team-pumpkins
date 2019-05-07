@@ -45,4 +45,8 @@
     <string name="missing_floor_input">Select Floor</string>
 
     <string name="elevator">Elevator</string>
+
+    <string name="victory">Congratulations! You won!</string>
+
+    <string name="play_again">Play Again?</string>
 </resources>
