@@ -8,13 +8,18 @@ import com.bignerdranch.android.escapeovatortemp.database.NoteDBSchema.NoteTable
 
 import java.util.UUID;
 
+/**
+ * A CursorWrapper that reads in Notes from the database
+ */
 public class NoteCursorWrapper extends CursorWrapper
 {
+    // Constructor
     public NoteCursorWrapper(Cursor cursor)
     {
         super(cursor);
     }
 
+    // Reads in a note from the database
     public Note getNote()
     {
         String uuidString = getString(getColumnIndex(NoteTable.Cols.UUID));

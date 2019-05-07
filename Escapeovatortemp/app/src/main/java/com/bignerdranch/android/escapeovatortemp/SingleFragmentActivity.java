@@ -4,6 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * SingleFragmentActivity from the CriminalIntent lab
+ * Anthony Hessler (though all I really did was copy and paste this from the lab)
+ */
 public abstract class SingleFragmentActivity extends AppCompatActivity
 {
     protected abstract Fragment createFragment();

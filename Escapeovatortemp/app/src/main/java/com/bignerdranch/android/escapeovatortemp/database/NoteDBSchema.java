@@ -1,5 +1,9 @@
 package com.bignerdranch.android.escapeovatortemp.database;
 
+/**
+ * Sets up the String constants for use in the database
+ * Anthony Hessler
+ */
 public class NoteDBSchema
 {
     public static final class NoteTable

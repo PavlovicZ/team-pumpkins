@@ -26,23 +26,29 @@ import java.util.UUID;
 
 import static android.app.Activity.RESULT_OK;
 
-
+/**
+ * Fragment for editing a note
+ * Anthony Hessler
+ */
 public class NoteFragment extends Fragment {
+    // Strings to pass Note ID and floor number into Intents
     private static final String ARG_NOTE_ID = "note_ID";
     private static final String ARG_FLOOR_NUM = "floor_num";
+
+    // Request code for setting the image
     private static final int REQUEST_IMAGE = 0;
 
-    private Note mNote;
-    private EditText mFloorNumberET;
-    private EditText mNoteET;
-    private ImageButton mNoteImage;
-    private int mFloorNum;
+    private Note mNote;         // The note being edited
+    private EditText mFloorNumberET;    // Displays the floor number
+    private EditText mNoteET;           // Displays the text of the note
+    private ImageButton mNoteImage;     // Displays the image of the note (Does not work, but we're keeping it in to show that we tried)
+    private int mFloorNum;      // The floor number
 
     public NoteFragment() {
         // Required empty public constructor
     }
 
-
+    // Creates a new instance of NoteFragment
     public static NoteFragment newInstance(UUID noteID, int floorNum) {
         Bundle args = new Bundle();
         args.putSerializable(ARG_NOTE_ID, noteID);
@@ -53,6 +59,7 @@ public class NoteFragment extends Fragment {
         return fragment;
     }
 
+    // Code that runs when the Fragment is created
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +68,6 @@ public class NoteFragment extends Fragment {
 
         // Check the database for the note
         mNote = Notepad.get(getActivity()).getNote(noteId);
-
         if(mNote == null)
         {
             // If the note is in the auto-generated note list, retrieve it
@@ -78,15 +84,19 @@ public class NoteFragment extends Fragment {
         }
     }
 
+    // Code to set up how the Fragment looks
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.fragment_note, container, false);
 
+        // Sets the EditText to display the floor number and not be editable
+        // This is never editable, but it is still an EditText because that looks nicer than just a TextView
         mFloorNumberET = (EditText) v.findViewById(R.id.floor_number);
         mFloorNumberET.setText("" + mNote.getFloorNum());
         mFloorNumberET.setEnabled(false);
 
+        // Sets the EditText to display the Note Text
         mNoteET = (EditText) v.findViewById(R.id.note_textbox);
         mNoteET.setText(mNote.getNoteText());
         mNoteET.addTextChangedListener(new TextWatcher() {
@@ -106,7 +116,10 @@ public class NoteFragment extends Fragment {
 
             }
         });
+        mNoteET.setEnabled(mNote.isEditable());     // Sets it so you can't edit game-generated notes
 
+        // Sets the note image button to allow the user to select a photo from the gallery
+        // Unfortunately, due to the issues with setting the image button we never got to test this
         mNoteImage = (ImageButton) v.findViewById(R.id.note_image);
         mNoteImage.setImageBitmap(mNote.getImage());
         mNoteImage.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +135,7 @@ public class NoteFragment extends Fragment {
         return v;
     }
 
+    // Updates the note when the Fragment is paused
     @Override
     public void onPause()
     {
@@ -130,6 +144,8 @@ public class NoteFragment extends Fragment {
         Notepad.get(getActivity()).updateNote(mNote);
     }
 
+    // Sets the image based on which image was chosen from the photo gallery, if any at all
+    // Again, we unfortunately could never test this as the image button does not appear at all.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
