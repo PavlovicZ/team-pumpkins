@@ -37,6 +37,7 @@ public class Floor5Activity extends ParentFloorActivity {
             mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
             mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
         }
+        updateToolbar();
 
         mGrabXRayGlassesButton = (ImageButton) findViewById(R.id.grab_xrayglasses);
         mGrabXRayGlassesButton.setOnClickListener(new View.OnClickListener() {

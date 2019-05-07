@@ -12,7 +12,7 @@
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/grab_blacklight"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/uv_in_environment"
         android:layout_gravity="center_vertical|right"/>
 
     <FrameLayout android:layout_height="match_parent"
@@ -23,12 +23,12 @@
             android:layout_width="wrap_content"
             android:id="@+id/note_button"
             android:translationX="100dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/notebook"
             android:layout_gravity="bottom"/>
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/flashlight_off"
             android:id="@+id/flashlight_button"
             android:translationX="200dp"
             android:layout_gravity="bottom"
@@ -36,7 +36,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/xray_off"
             android:id="@+id/xrayglasses_button"
             android:translationX="300dp"
             android:layout_gravity="bottom"
@@ -44,7 +44,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/lockpick"
             android:id="@+id/key_button"
             android:translationX="400dp"
             android:layout_gravity="bottom"
@@ -52,7 +52,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/lockpick"
             android:id="@+id/lockpick_button"
             android:translationX="500dp"
             android:layout_gravity="bottom"
@@ -60,7 +60,7 @@
 
         <ImageButton android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/uv_off"
             android:id="@+id/blacklight_button"
             android:translationX="600dp"
             android:layout_gravity="bottom"

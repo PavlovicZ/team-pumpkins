@@ -117,7 +117,7 @@ public class Notepad
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         try
         {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 0, stream);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
             stream.close();
         }
         catch (Exception e)

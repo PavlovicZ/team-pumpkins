@@ -230,21 +230,13 @@ public class ParentFloorActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy() called");
     }
 */
-    public void updateToolbar() {
-        if (mFlashlightHeld = true){
-            mFlashlightButton.isEnabled();
-        }
-        if (mBlacklightHeld = true){
-            mBlacklightButton.isEnabled();
-        }
-        if (mXRayGlassesHeld = true){
-            mXRayGlassesButton.isEnabled();
-        }
-        if (mKeyHeld = true){
-            mKeyButton.isEnabled();
-        }
-        if (mLockpickHeld = true){
-            mLockpickButton.isEnabled();
-        }
+    public void updateToolbar()
+    {
+        mFlashlightButton.setEnabled(mFlashlightHeld);
+        mBlacklightButton.setEnabled(mBlacklightHeld);
+        mXRayGlassesButton.setEnabled(mXRayGlassesHeld);
+        mKeyButton.setEnabled(mKeyHeld);
+        mLockpickButton.setEnabled(mLockpickHeld);
     }
+
 }

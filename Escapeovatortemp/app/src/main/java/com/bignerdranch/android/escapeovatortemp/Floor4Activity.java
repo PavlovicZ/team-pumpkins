@@ -37,6 +37,7 @@ public class Floor4Activity extends ParentFloorActivity {
             mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
             mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
         }
+        updateToolbar();
 
         mGrabLockpickButton = (ImageButton) findViewById(R.id.grab_lockpick);
         mGrabLockpickButton.setOnClickListener(new View.OnClickListener() {

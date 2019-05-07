@@ -37,6 +37,7 @@ public class Floor3Activity extends ParentFloorActivity {
             mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
             mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
         }
+        updateToolbar();
 
         mGrabBlacklightButton = (ImageButton) findViewById(R.id.grab_blacklight);
         mGrabBlacklightButton.setOnClickListener(new View.OnClickListener() {

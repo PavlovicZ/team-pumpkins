@@ -35,6 +35,7 @@ public class Floor2Activity extends ParentFloorActivity {
             mLockpickHeld = savedInstanceState.getBoolean(KEY_LOCKPICK, false);
             mChestOpened = savedInstanceState.getBoolean(KEY_CHEST, false);
         }
+        updateToolbar();
 
         mFloor = getIntent().getIntExtra(EXTRA_FLOOR, 2);
 
