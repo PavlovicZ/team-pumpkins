@@ -25,7 +25,7 @@
     <ImageButton android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/chest_button"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_lockpick"
         android:layout_gravity="center_vertical|left"
         android:visibility="invisible"/>
 
